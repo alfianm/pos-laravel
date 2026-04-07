@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --app-surface: #f9fafb;
+        --app-panel: #ffffff;
+        --app-ink: #111827;
+        --app-muted: #6b7280;
+        --app-line: #e5e7eb;
+        --app-accent: #2563eb;
+    }
+
+    html {
+        @apply h-full antialiased scroll-smooth;
+    }
+
+    body {
+        background-color: var(--app-surface);
+        color: var(--app-ink);
+        font-family: 'Inter', system-ui, sans-serif;
+    }
+}
+
+@layer components {
+    /* Base simple components */
+    .shell-input {
+        @apply border border-gray-200 rounded-lg bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all;
+    }
+
+    .shell-icon-button {
+        @apply inline-flex items-center justify-center p-2 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-colors;
+    }
+
+    .shell-sidebar-link {
+        @apply flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium text-gray-500 hover:text-gray-900 hover:bg-gray-50 transition-colors;
+    }
+
+    .shell-sidebar-active {
+        @apply bg-blue-50 text-blue-700;
+    }
+    
+    .shell-sidebar-active svg {
+        @apply text-blue-700;
+    }
+
+    /* POS specific */
+    .pos-card {
+        @apply bg-white border border-gray-100 rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full hover:bg-gray-400 transition-colors;
+}
+
+[x-cloak] {
+    display: none !important;
+}
