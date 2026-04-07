@@ -1,58 +1,143 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# POS Multi Cabang + CRM + Omnichannel Marketplace Indonesia 🛍️
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![Laravel 13](https://img.shields.io/badge/Laravel-13-FF2D20?style=for-the-badge&logo=laravel)](https://laravel.com)
+[![Livewire 3](https://img.shields.io/badge/Livewire-3-4e5ee4?style=for-the-badge&logo=livewire)](https://livewire.laravel.com)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?style=for-the-badge&logo=postgresql)](https://www.postgresql.org)
 
-## About Laravel
+**Sistem Operasi Bisnis (Business Operating System)** yang mengintegrasikan transaksi kasir (POS), manajemen stok multi-cabang, Customer Relationship Management (CRM), dan konektivitas Omnichannel ke marketplace Indonesia (Shopee, Tokopedia, dll) dalam satu platform terpusat.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ✨ Fitur Utama
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+-   🏬 **Multi-Tenant & Multi-Branch**: Isolasi data antar bisnis dan manajemen banyak cabang/outlet dalam satu akun.
+-   🛒 **Modern POS**: Interface kasir cepat berbasis Livewire dengan dukungan barcode, diskon, dan cetak struk PDF/Thermal.
+-   📦 **Inventory Management**: Stok real-time per cabang, mutasi stok antar cabang, dan histori pergerakan barang.
+-   🤝 **CRM & Leads**: Kelola data pelanggan, follow-up prospek, loyalty program (poin/voucher), dan membership tier.
+-   🛍️ **Omnichannel Foundation**: Pemetaan SKU internal ke marketplace Indonesia (Shopee, Tokopedia, dll) beserta sinkronisasi stok dan order.
+-   📊 **Reporting & Analytics**: Laporan penjualan, pembelian, laba-rugi, dan performa cabang yang komprehensif.
+-   🛡️ **Sistem Audit & Izin**: Role & Permission yang granular (Spatie) dan audit log untuk setiap aksi kritikal.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠️ Tech Stack
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+-   **Backend**: Laravel 13 (PHP 8.3+)
+-   **Frontend**: Livewire 3 + Volt, Alpine.js, Tailwind CSS
+-   **Database**: PostgreSQL
+-   **Caching & Queue**: Redis
+-   **Media**: Spatie MediaLibrary
+-   **Permissions**: Spatie Laravel Permission
+-   **Exports/Imports**: Maatwebsite Excel, Laravel DomPDF
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+---
 
-## Agentic Development
+## 🚀 Panduan Instalasi
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+Ikuti langkah-langkah di bawah ini untuk menjalankan project di environment lokal Anda.
+
+### 1. Prasyarat (Prerequisites)
+
+Pastikan Anda sudah menginstal:
+- PHP >= 8.3
+- Composer
+- Node.js & NPM
+- PostgreSQL
+- Redis Server
+
+### 2. Clone Repository
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone https://github.com/alfianm/pos-laravel.git
+cd pos-laravel
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 3. Instal Dependensi
 
-## Contributing
+```bash
+# Instal dependensi PHP
+composer install
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# Instal dependensi Frontend
+npm install
+```
 
-## Code of Conduct
+### 4. Konfigurasi Environment
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Salin file `.env.example` menjadi `.env` dan sesuaikan kredensial database & Redis Anda:
 
-## Security Vulnerabilities
+```bash
+cp .env.example .env
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+**Penting**: Pastikan `DB_CONNECTION` diatur ke `pgsql` dan sesuaikan `DB_DATABASE`, `DB_USERNAME`, dan `DB_PASSWORD`.
 
-## License
+### 5. Setup Project
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Jalankan perintah berikut untuk meng-generate app key, menjalankan migrasi, dan seeder:
+
+```bash
+# Generate Key
+php artisan key:generate
+
+# Migrasi Database & Seeding Data Awal
+php artisan migrate --seed
+
+# Link Storage
+php artisan storage:link
+```
+
+Atau gunakan script shortcut:
+```bash
+npm run setup
+```
+
+---
+
+## 🖥️ Menjalankan Aplikasi
+
+Project ini menggunakan `concurrently` untuk mempermudah menjalankan server pengembangan, queue, dan vite secara bersamaan.
+
+```bash
+# Menjalankan Server, Vite, Queue, dan Pail (Logging)
+npm run dev
+```
+
+Akses aplikasi di browser melalui: [http://localhost:8000](http://localhost:8000)
+
+---
+
+## 📦 Pengembangan & Produksi
+
+### Background Jobs (Queues)
+Beberapa fitur seperti sinkronisasi marketplace dan pengiriman Webhook berjalan di background. Pastikan queue worker aktif:
+```bash
+php artisan queue:work
+```
+
+### Penjadwalan (Scheduler)
+Fitur laporan otomatis dan pembersihan data membutuhkan scheduler:
+```bash
+# Lokal
+php artisan schedule:work
+
+# Produksi (Crontab)
+* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
+```
+
+---
+
+## 📄 Dokumentasi Tambahan
+
+Detail spesifikasi fitur dan rencana pengembangan dapat ditemukan di folder `docs/`:
+- [Product Requirement Document (PRD)](docs/prd.md)
+- [Architecture Design](docs/architecture.md)
+- [Database Schema](docs/database-schema.md)
+- [Implementation Plan](docs/implementation-plan.md)
+
+---
+
+## 🛡️ License
+
+Project ini dikembangkan untuk internal bisnis dan dilisensikan di bawah [MIT License](LICENSE).
